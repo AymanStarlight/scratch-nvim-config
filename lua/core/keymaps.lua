@@ -84,8 +84,8 @@ map('n', '<leader>j', '*``cgn', opts)
 map({ 'n', 'v' }, '<leader>y', [["+y]])
 map('n', '<leader>Y', [["+Y]])
 
--- -- Diagnostic keymaps
--- map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
--- map('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
--- map('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
--- map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+-- -- diagnostic keymaps
+-- map('n', '[d', vim.diagnostic.goto_prev, { desc = 'go to previous diagnostic message' })
+-- map('n', ']d', vim.diagnostic.goto_next, { desc = 'go to next diagnostic message' })
+-- map('n', '<leader>d', vim.diagnostic.open_float, { desc = 'open floating diagnostic message' })
+-- map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'open diagnostics list' })
