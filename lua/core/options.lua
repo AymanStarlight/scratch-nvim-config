@@ -1,14 +1,14 @@
+local opt = vim.opt
+local o = vim.o
+local g = vim.g
+local api = vim.api
+
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
-
-local opt = vim.opt
-local o = vim.o
-local g = vim.g
-local api = vim.api
 
 -- Highlight when yanking (copying) text
 api.nvim_create_autocmd('TextYankPost', {
