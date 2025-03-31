@@ -11,6 +11,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Part of NvChad UI integration
+vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46_cache/"
+
 require("lazy").setup({
 	{
 		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -26,3 +29,14 @@ require("lazy").setup({
 	},
 	{ import = "plugins" },
 })
+
+-- Part of NvChad UI integration
+
+-- -- (method 1, For heavy lazyloaders)
+--  dofile(vim.g.base46_cache .. "defaults")
+--  dofile(vim.g.base46_cache .. "statusline")
+--
+-- (method 2, for non lazyloaders) to load all highlights at once
+for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
+	dofile(vim.g.base46_cache .. v)
+end
