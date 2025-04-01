@@ -1,5 +1,6 @@
-require("core/options")
-require("core/mappings")
+-- Set <space> as the leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -40,3 +41,7 @@ require("lazy").setup({
 for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
 	dofile(vim.g.base46_cache .. v)
 end
+
+require("core/options")
+require("core/mappings")
+

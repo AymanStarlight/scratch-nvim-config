@@ -19,6 +19,17 @@ api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- Show Nvdash when all buffers are closed
+vim.api.nvim_create_autocmd("BufDelete", {
+  callback = function()
+    local bufs = vim.t.bufs
+    if #bufs == 1 and vim.api.nvim_buf_get_name(bufs[1]) == "" then
+      vim.cmd "Nvdash"
+			vim.cmd "NvimTreeClose"
+    end
+  end,
+})
+
 -- Enable support for Nerd Font symbols and icons in the UI
 g.have_nerd_font = true
 
