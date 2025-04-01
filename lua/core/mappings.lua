@@ -46,10 +46,10 @@ mapKey("n", "<leader>+", "<C-a>", "Increment number")
 mapKey("n", "<leader>-", "<C-x>", "Decrement number")
 
 -- Window management (split windows and adjust layouts)
--- mapKey("n", "<leader>v", "<C-w>v", "Split window vertically")
--- mapKey("n", "<leader>h", "<C-w>s", "Split window horizontally")
--- mapKey("n", "<leader>se", "<C-w>=", "Equalize window sizes")
--- mapKey("n", "<leader>xs", ":close<CR>", "Close current split window")
+mapKey("n", "<leader>vs", "<C-w>v", "Split window vertically")
+mapKey("n", "<leader>hs", "<C-w>s", "Split window horizontally")
+mapKey("n", "<leader>se", "<C-w>=", "Equalize window sizes")
+mapKey("n", "<leader>xs", ":close<CR>", "Close current split window")
 
 -- Navigate between window splits
 mapKey("n", "<C-k>", ":wincmd k<CR>", "Move to window above")
@@ -82,7 +82,7 @@ mapKey("n", "<A-k>", ":m .-2<CR>==", "Move selected text up")
 mapKey("v", "p", '"_dP', "Paste without replacing clipboard")
 
 -- Replace the word under the cursor and enter Insert mode
-mapKey("n", "<leader>j", "*``cgn", "Replace word under cursor")
+mapKey("n", "<leader>rw", "*``cgn", "Replace word under cursor")
 
 -- Yank to system clipboard (highlighted text and entire row)
 mapKey({ "n", "v" }, "<leader>y", [["+y]], "Yank selection to clipboard")

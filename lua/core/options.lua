@@ -4,8 +4,8 @@ local g = vim.g
 local api = vim.api
 
 -- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
+-- Schedule the setting after `UiEnter` because it can increase startup-time.
+-- Remove this option if you want your OS clipboard to remain independent.
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
@@ -20,14 +20,36 @@ api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Show Nvdash when all buffers are closed
-vim.api.nvim_create_autocmd("BufDelete", {
-  callback = function()
-    local bufs = vim.t.bufs
-    if #bufs == 1 and vim.api.nvim_buf_get_name(bufs[1]) == "" then
-      vim.cmd "Nvdash"
-			vim.cmd "NvimTreeClose"
-    end
-  end,
+api.nvim_create_autocmd("BufDelete", {
+	callback = function()
+		local bufs = vim.t.bufs
+		if #bufs == 1 and api.nvim_buf_get_name(bufs[1]) == "" then
+			vim.cmd("Nvdash")
+			vim.cmd("NvimTreeClose")
+		end
+	end,
+})
+
+-- Hide cmdline when not typing a command
+api.nvim_create_autocmd("CmdlineLeave", {
+	group = api.nvim_create_augroup("cmdheight_0_on_cmdlineleave", { clear = true }),
+	desc = "Hide cmdline when not typing a command",
+	command = ":set cmdheight=0",
+})
+
+-- Don't hide the status line when typing a command
+api.nvim_create_autocmd("CmdlineEnter", {
+	group = api.nvim_create_augroup("cmdheight_1_on_cmdlineenter", { clear = true }),
+	desc = "Don't hide the status line when typing a command",
+	command = ":set cmdheight=1",
+})
+
+-- Get rid of the writing a file message
+api.nvim_create_autocmd("BufWritePost", {
+	group = api.nvim_create_augroup("hide_message_after_write", { clear = true }),
+	desc = "Get rid of the writing a file message",
+	pattern = { "*" },
+	command = "redrawstatus",
 })
 
 -- Enable support for Nerd Font symbols and icons in the UI
