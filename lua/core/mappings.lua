@@ -52,10 +52,17 @@ mapKey("n", "<leader>se", "<C-w>=", "Equalize window sizes")
 mapKey("n", "<leader>xs", ":close<CR>", "Close current split window")
 
 -- Navigate between window splits
-mapKey("n", "<C-k>", ":wincmd k<CR>", "Move to window above")
-mapKey("n", "<C-j>", ":wincmd j<CR>", "Move to window below")
-mapKey("n", "<C-h>", ":wincmd h<CR>", "Move to window left")
-mapKey("n", "<C-l>", ":wincmd l<CR>", "Move to window right")
+-- Already set by vim-tmux-navigator
+-- mapKey("n", "<C-k>", ":wincmd k<CR>", "Move to window above")
+-- mapKey("n", "<C-j>", ":wincmd j<CR>", "Move to window below")
+-- mapKey("n", "<C-h>", ":wincmd h<CR>", "Move to window left")
+-- mapKey("n", "<C-l>", ":wincmd l<CR>", "Move to window right")
+--
+-- Move window splits
+mapKey("n", "<leader>k", ":wincmd K<CR>", "Move window up")
+mapKey("n", "<leader>j", ":wincmd J<CR>", "Move window down")
+mapKey("n", "<leader>h", ":wincmd H<CR>", "Move window left")
+mapKey("n", "<leader>l", ":wincmd L<CR>", "Move window right")
 
 -- Tab management
 mapKey("n", "<leader>to", ":tabnew<CR>", "Open new tab")
