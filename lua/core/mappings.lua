@@ -7,10 +7,6 @@ local function mapKey(mode, key, cmd, desc)
 	vim.keymap.set(mode, key, cmd, opts)
 end
 
--- Toggle comments (requires a commenting plugin like 'Comment.nvim')
-mapKey("n", "<leader>/", "gcc", "Toggle comments")
-mapKey("v", "<leader>/", "gc", "Toggle comments")
-
 -- Disable the spacebar key's default behavior in Normal and Visual modes
 mapKey({ "n", "v" }, "<Space>", "<Nop>", "Disable space key")
 
@@ -80,10 +76,6 @@ mapKey("i", "kj", "<ESC>", "Exit insert mode")
 -- Stay in indent mode when indenting in Visual mode
 mapKey("v", "<", "<gv", "Indent left and stay in mode")
 mapKey("v", ">", ">gv", "Indent right and stay in mode")
-
--- Move selected text up and down in Visual mode
-mapKey("n", "<A-j>", ":m .+1<CR>==", "Move selected text down")
-mapKey("n", "<A-k>", ":m .-2<CR>==", "Move selected text up")
 
 -- Paste without overwriting the clipboard (keep last yanked text)
 mapKey("v", "p", '"_dP', "Paste without replacing clipboard")

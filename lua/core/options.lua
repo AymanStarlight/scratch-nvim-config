@@ -124,3 +124,6 @@ opt.confirm = true
 o.foldlevel = 99
 o.foldlevelstart = 99
 o.foldenable = true
+
+-- Enable 24-bit color
+opt.termguicolors = true
