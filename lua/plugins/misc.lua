@@ -44,19 +44,17 @@ return {
 	{
 		-- Hints keybinds
 		"folke/which-key.nvim",
-		opts = {
-			-- win = {
-			--   border = {
-			--     { '┌', 'FloatBorder' },
-			--     { '─', 'FloatBorder' },
-			--     { '┐', 'FloatBorder' },
-			--     { '│', 'FloatBorder' },
-			--     { '┘', 'FloatBorder' },
-			--     { '─', 'FloatBorder' },
-			--     { '└', 'FloatBorder' },
-			--     { '│', 'FloatBorder' },
-			--   },
-			-- },
-		},
+		opts = {},
+	},
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = "kevinhwang91/promise-async",
+		config = function()
+			require("ufo").setup({
+				provider_selector = function()
+					return { "lsp", "indent" }
+				end,
+			})
+		end,
 	},
 }

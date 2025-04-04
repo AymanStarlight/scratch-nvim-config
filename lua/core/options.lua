@@ -30,28 +30,28 @@ api.nvim_create_autocmd("BufDelete", {
 	end,
 })
 
--- Hide cmdline when not typing a command
-api.nvim_create_autocmd("CmdlineLeave", {
-	group = api.nvim_create_augroup("cmdheight_0_on_cmdlineleave", { clear = true }),
-	desc = "Hide cmdline when not typing a command",
-	command = ":set cmdheight=0",
-})
-
--- Don't hide the status line when typing a command
-api.nvim_create_autocmd("CmdlineEnter", {
-	group = api.nvim_create_augroup("cmdheight_1_on_cmdlineenter", { clear = true }),
-	desc = "Don't hide the status line when typing a command",
-	command = ":set cmdheight=1",
-})
-
--- Get rid of the writing a file message
-api.nvim_create_autocmd("BufWritePost", {
-	group = api.nvim_create_augroup("hide_message_after_write", { clear = true }),
-	desc = "Get rid of the writing a file message",
-	pattern = { "*" },
-	command = "redrawstatus",
-})
-
+-- -- Hide cmdline when not typing a command
+-- api.nvim_create_autocmd("CmdlineLeave", {
+-- 	group = api.nvim_create_augroup("cmdheight_0_on_cmdlineleave", { clear = true }),
+-- 	desc = "Hide cmdline when not typing a command",
+-- 	command = ":set cmdheight=0",
+-- })
+--
+-- -- Don't hide the status line when typing a command
+-- api.nvim_create_autocmd("CmdlineEnter", {
+-- 	group = api.nvim_create_augroup("cmdheight_1_on_cmdlineenter", { clear = true }),
+-- 	desc = "Don't hide the status line when typing a command",
+-- 	command = ":set cmdheight=1",
+-- })
+--
+-- -- Get rid of the writing a file message
+-- api.nvim_create_autocmd("BufWritePost", {
+-- 	group = api.nvim_create_augroup("hide_message_after_write", { clear = true }),
+-- 	desc = "Get rid of the writing a file message",
+-- 	pattern = { "*" },
+-- 	command = "redrawstatus",
+-- })
+--
 -- Enable support for Nerd Font symbols and icons in the UI
 g.have_nerd_font = true
 
@@ -119,3 +119,8 @@ opt.inccommand = "split"
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
 opt.confirm = true
+
+-- Folding
+o.foldlevel = 99
+o.foldlevelstart = 99
+o.foldenable = true

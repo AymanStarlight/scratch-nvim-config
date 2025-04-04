@@ -123,3 +123,33 @@ mapKey("n", "[d", vim.diagnostic.goto_prev, "Go to previous diagnostic message")
 mapKey("n", "]d", vim.diagnostic.goto_next, "Go to next diagnostic message")
 mapKey("n", "<leader>d", vim.diagnostic.open_float, "Open floating diagnostic message")
 mapKey("n", "<leader>q", vim.diagnostic.setloclist, "Open diagnostics list")
+
+-- Terminals
+mapKey("t", "<C-x>", "<C-\\><C-N>", "Terminal escape terminal mode")
+
+-- New terminals
+mapKey("n", "<leader>mh", function()
+	require("nvchad.term").new({ pos = "sp" })
+end, "Terminal new horizontal term")
+
+mapKey("n", "<leader>mv", function()
+	require("nvchad.term").new({ pos = "vsp" })
+end, "Terminal new vertical term")
+
+-- toggleable
+mapKey({ "n", "t" }, "<A-v>", function()
+	require("nvchad.term").toggle({ pos = "vsp", id = "vtoggleTerm" })
+end, "Terminal toggleable vertical term")
+
+mapKey({ "n", "t" }, "<A-h>", function()
+	require("nvchad.term").toggle({ pos = "sp", id = "htoggleTerm" })
+end, "Terminal toggleable horizontal term")
+
+mapKey({ "n", "t" }, "<A-i>", function()
+	require("nvchad.term").toggle({ pos = "float", id = "floatTerm" })
+end, "Terminal toggle floating term")
+
+
+-- Folding
+mapKey('n', 'zR', require('ufo').openAllFolds, "Open all folds")
+mapKey('n', 'zM', require('ufo').closeAllFolds, "Close all folds")
