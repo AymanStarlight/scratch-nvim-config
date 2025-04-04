@@ -141,7 +141,9 @@ mapKey({ "n", "t" }, "<A-i>", function()
 	require("nvchad.term").toggle({ pos = "float", id = "floatTerm" })
 end, "Terminal toggle floating term")
 
-
 -- Folding
 mapKey('n', 'zR', require('ufo').openAllFolds, "Open all folds")
 mapKey('n', 'zM', require('ufo').closeAllFolds, "Close all folds")
+
+-- Dismiss noice messages
+mapKey('n', "<leader>nd", "<cmd>NoiceDismiss<CR>", "Dismiss noice messages")
