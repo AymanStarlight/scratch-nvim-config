@@ -57,4 +57,5 @@ return {
 			})
 		end,
 	},
+	{ "nil70n/floating-help" },
 }
