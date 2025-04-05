@@ -146,4 +146,12 @@ mapKey('n', 'zR', require('ufo').openAllFolds, "Open all folds")
 mapKey('n', 'zM', require('ufo').closeAllFolds, "Close all folds")
 
 -- Dismiss noice messages
-mapKey('n', "<leader>nd", "<cmd>NoiceDismiss<CR>", "Dismiss noice messages")
+mapKey('n', "<leader>dn", "<cmd>NoiceDismiss<CR>", "Dismiss noice messages")
+
+-- Organize Imports (TS/JS)
+vim.keymap.set('n', '<leader>oi', function()
+  vim.lsp.buf.execute_command({
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+  })
+end, { desc = "Organize Imports (TS/JS)" })
